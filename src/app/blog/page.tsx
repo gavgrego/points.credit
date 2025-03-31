@@ -1,40 +1,25 @@
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
+import { type SanityDocument } from 'next-sanity';
 
-const blogPosts = [
-  {
-    id: 'best-credit-cards-2023',
-    title: 'Best Credit Cards for Points and Miles in 2023',
-    excerpt:
-      'A comprehensive guide to the best credit cards for earning transferable points and miles in 2023.',
-    publishedAt: '2023-11-15',
-  },
-  {
-    id: 'amex-membership-rewards-guide',
-    title: 'Complete Guide to American Express Membership Rewards',
-    excerpt:
-      'Everything you need to know about earning and redeeming American Express Membership Rewards points.',
-    publishedAt: '2023-10-12',
-  },
-  {
-    id: 'capital-one-venture-x-review',
-    title: 'Capital One Venture X Review: Premium Travel Card for All',
-    excerpt:
-      "An in-depth review of the Capital One Venture X, examining its benefits, rewards, and whether it's worth the annual fee.",
-    publishedAt: '2023-09-20',
-  },
-];
+import { client } from '@/sanity/client';
 
-export default function BlogPage() {
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+const options = { next: { revalidate: 30 } };
+
+export default async function BlogPage() {
+  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-3xl font-bold mb-6">Credit Card Points Blog</h1>
 
       <div className="grid gap-6">
-        {blogPosts.map((post) => (
-          <Card key={post.id} className="hover:shadow-md transition-shadow">
+        {posts.map((post) => (
+          <Card key={post._id} className="hover:shadow-md transition-shadow">
             <CardHeader>
               <CardTitle>
                 <Link
