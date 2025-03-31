@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -34,7 +31,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <img
             width={115}
             height={28}
             style={{ border: '0px', height: '28px' }}
