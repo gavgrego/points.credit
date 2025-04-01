@@ -278,9 +278,6 @@ export const transferPartners: CreditCardProgram[] = [
       },
       {
         name: 'Etihad Guest',
-        bonus: '1:1.4',
-        bonusPercent: 40,
-        bonusUntil: '2025-03-31',
         category: 'Airlines',
         transferRatio: '1:1',
       },
