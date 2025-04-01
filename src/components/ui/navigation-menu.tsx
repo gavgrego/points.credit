@@ -9,11 +9,9 @@ function NavigationMenu({
   className,
   children,
   viewport = true,
-  defaultOpen = true,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
   viewport?: boolean;
-  defaultOpen?: boolean;
 }) {
   return (
     <NavigationMenuPrimitive.Root
