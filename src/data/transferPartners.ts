@@ -16,6 +16,9 @@ export const transferPartners: CreditCardProgram[] = [
         category: 'Airlines',
         alliance: 'SkyTeam',
         transferRatio: '1:1.6',
+        bonus: '1:1.92',
+        bonusPercent: 20,
+        bonusUntil: '2025-04-30',
       },
       {
         name: 'Air Canada Aeroplan',
@@ -74,6 +77,9 @@ export const transferPartners: CreditCardProgram[] = [
         name: 'Etihad Guest',
         category: 'Airlines',
         transferRatio: '1:1',
+        bonus: '1:1.2',
+        bonusPercent: 20,
+        bonusUntil: '2025-04-30',
       },
       {
         name: 'HawaiianMiles (Alaska Airlines)',
@@ -102,11 +108,7 @@ export const transferPartners: CreditCardProgram[] = [
       },
       {
         name: 'Qatar Airways Privilege Club',
-        bonus: '1:1.2',
-        bonusPercent: 20,
         alliance: 'OneWorld',
-
-        bonusUntil: '2025-03-31',
         category: 'Airlines',
         transferRatio: '1:1',
       },
@@ -148,9 +150,6 @@ export const transferPartners: CreditCardProgram[] = [
       {
         name: 'Aer Lingus AerClub',
         category: 'Airlines',
-        bonus: '1:1.2',
-        bonusPercent: 20,
-        bonusUntil: '2025-03-31',
         transferRatio: '1:1',
       },
       {
@@ -171,11 +170,7 @@ export const transferPartners: CreditCardProgram[] = [
         name: 'British Airways Executive Club',
         category: 'Airlines',
         alliance: 'OneWorld',
-
         transferRatio: '1:1',
-        bonus: '1:1.2',
-        bonusPercent: 20,
-        bonusUntil: '2025-03-31',
       },
       {
         name: 'Emirates Skywards',
@@ -185,9 +180,6 @@ export const transferPartners: CreditCardProgram[] = [
       {
         name: 'Iberia Plus',
         category: 'Airlines',
-        bonus: '1:1.2',
-        bonusPercent: 20,
-        bonusUntil: '2025-03-31',
         transferRatio: '1:1',
       },
       {
@@ -224,15 +216,15 @@ export const transferPartners: CreditCardProgram[] = [
       {
         name: 'IHG One Rewards',
         category: 'Hotels',
+        bonus: '1:1.8',
+        bonusPercent: 80,
+        bonusUntil: '2025-04-30',
         transferRatio: '1:1',
       },
       {
         name: 'Marriott Bonvoy',
         category: 'Hotels',
         transferRatio: '1:1',
-        bonus: '1:1.5',
-        bonusPercent: 50,
-        bonusUntil: '2025-03-31',
       },
       {
         name: 'World of Hyatt',
