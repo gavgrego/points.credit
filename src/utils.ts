@@ -102,24 +102,14 @@ export const createLinks = (
     .style('stroke-opacity', 0.15)
     .style('cursor', 'pointer')
     .style('pointer-events', 'all')
-    .on('mouseover', function (event: MouseEvent, d: Link) {
+    .on('mouseover', function (event: MouseEvent, d: any) {
       const path = d3.select(this);
-      const bankNode =
-        typeof d.source === 'object' && d.source.category === 'Banks'
-          ? d.source
-          : typeof d.target === 'object'
-          ? d.target
-          : null;
-
-      if (!bankNode) return;
-
+      const bankNode = d.source.category === 'Banks' ? d.source : d.target;
       const bankColor = BRAND_COLORS[bankNode.id] || '#60a5fa';
       path.style('stroke-opacity', 0.5).style('stroke', bankColor);
 
-      const sourceNode = typeof d.source === 'object' ? d.source : null;
-      const targetNode = typeof d.target === 'object' ? d.target : null;
-
-      if (!sourceNode || !targetNode) return;
+      const sourceNode = d.source;
+      const targetNode = d.target;
 
       // Find the actual transfer partner data
       const bankData = transferPartners.find((p) => p.name === bankNode.id);
@@ -129,9 +119,7 @@ export const createLinks = (
 
       const [x, y] = d3.pointer(event, svg.node());
       if (partnerData?.bonus) {
-        const ratio = `<tspan style="text-decoration: line-through">${
-          partnerData.transferRatio || '1:1'
-        }</tspan> <tspan style="fill: #ef4444">${partnerData.bonus}</tspan>`;
+        const ratio = `<tspan style="text-decoration: line-through">${partnerData.transferRatio || '1:1'}</tspan> <tspan style="fill: #ef4444">${partnerData.bonus}</tspan>`;
         createTooltip(svg, x, y - 30, sourceNode, ratio, targetNode);
       } else {
         createTooltip(
@@ -178,16 +166,16 @@ export const createNodes = (
       svg
         .selectAll('path')
         .style('stroke-opacity', (p: any) => {
-          const source = typeof p.source === 'object' ? p.source.id : null;
-          const target = typeof p.target === 'object' ? p.target.id : null;
+          const source = p.source.id || p.source;
+          const target = p.target.id || p.target;
           if (source === d.id || target === d.id) {
             return 0.5;
           }
           return 0.15;
         })
         .style('stroke', (p: any) => {
-          const source = typeof p.source === 'object' ? p.source.id : null;
-          const target = typeof p.target === 'object' ? p.target.id : null;
+          const source = p.source.id || p.source;
+          const target = p.target.id || p.target;
           if (source === d.id || target === d.id) {
             return nodeColor;
           }
@@ -241,8 +229,8 @@ export const createLabels = (
       const x = isBank
         ? (d.x0 ?? 0) - 30
         : isLeftSide
-        ? margin.left - 20 // Fixed position for left partners
-        : width - margin.right + 20; // Fixed position for right partners
+          ? margin.left - 20 // Fixed position for left partners
+          : width - margin.right + 20; // Fixed position for right partners
       const y = (d.y0 ?? 0) + ((d.y1 ?? 0) - (d.y0 ?? 0)) / 2;
 
       if (BRAND_LOGOS[d.id]) {
@@ -260,29 +248,28 @@ export const createLabels = (
               .attr('x', x - 20)
               .attr('y', y - 40)
               .attr('text-anchor', 'middle')
-              .style('fill', 'white')
+              .attr('dominant-baseline', 'middle')
+              .style('fill', '#e5e7eb')
+              .style('font-family', 'Geist Mono')
               .style('font-size', '12px')
               .text(d.id);
           })
           .on('mouseout', function () {
-            svg.select('.tooltip').remove();
+            svg.selectAll('.tooltip').remove();
           });
       } else {
+        const emoji = d.category === 'Airlines' ? '✈️' : '🏨';
+        const label = isLeftSide ? `${d.id} ${emoji}` : `${emoji} ${d.id}`;
+
         g.append('text')
           .attr('x', x)
           .attr('y', y)
           .attr('dy', '0.35em')
-          .attr('text-anchor', isBank ? 'end' : isLeftSide ? 'end' : 'start')
-          .style('fill', 'white')
-          .style('font-size', '12px')
-          .style('cursor', 'pointer')
-          .text(d.id)
-          .on('mouseover', function () {
-            d3.select(this).style('font-weight', 'bold');
-          })
-          .on('mouseout', function () {
-            d3.select(this).style('font-weight', 'normal');
-          });
+          .attr('text-anchor', isLeftSide ? 'end' : 'start')
+          .text(label)
+          .style('fill', '#e5e7eb')
+          .style('font-family', 'Geist Mono')
+          .style('font-size', '12px');
       }
     });
 };

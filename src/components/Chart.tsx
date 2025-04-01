@@ -25,7 +25,6 @@ const Chart = () => {
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
-    // Transform data and initialize sankey
     const { nodes, links } = transformData(transferPartners);
     const sankeyLayout = initializeSankey(width, height - margin.top, margin);
     const { nodes: sankeyNodes, links: sankeyLinks } = sankeyLayout({
@@ -33,22 +32,17 @@ const Chart = () => {
       links: links.map((d) => ({ ...d })),
     });
 
-    // Create color scale for partners
     const partnerColorScale = d3
       .scaleOrdinal<string>()
       .domain(nodes.map((n) => n.id))
       .range(PARTNER_COLORS);
 
-    // Add links with hover effects
     createLinks(svg, sankeyLinks, transferPartners);
 
-    // Add nodes with hover effects
     createNodes(svg, sankeyNodes, partnerColorScale);
 
-    // Add labels
     createLabels(svg, sankeyNodes, margin, width);
 
-    // Adjust the SVG viewBox to prevent tooltip clipping
     svg.attr('viewBox', `0 -40 ${width} ${height + 80}`);
   }, []);
 

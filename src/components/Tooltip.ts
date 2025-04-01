@@ -1,86 +1,64 @@
-'use client';
-
 import * as d3 from 'd3';
 import type { Node } from '@/types';
 
 export const createTooltip = (
   svg: d3.Selection<SVGSVGElement, unknown, null, undefined>,
-  x: number,
-  y: number,
-  sourceNode: Node,
+  tooltipX: number,
+  tooltipY: number,
+  bankNode: Node,
   ratio: string,
-  targetNode: Node
+  partnerNode: Node
 ) => {
-  // Remove any existing tooltip
-  removeTooltip(svg);
+  // Remove any existing tooltips
+  svg.selectAll('.link-tooltip').remove();
 
-  const tooltip = svg.append('g').attr('class', 'tooltip');
+  const tooltipGroup = svg
+    .append('g')
+    .attr('class', 'link-tooltip')
+    .attr('transform', `translate(${tooltipX}, ${tooltipY})`)
+    .style('pointer-events', 'none');
 
-  // Create a background rectangle
-  tooltip
-    .append('rect')
-    .attr('x', x - 100)
-    .attr('y', y - 30)
-    .attr('width', 200)
-    .attr('height', 60)
-    .attr('rx', 5)
-    .attr('ry', 5)
-    .style('fill', 'rgba(10, 10, 10, 0.9)')
-    .style('stroke', '#333')
-    .style('stroke-width', 1);
-
-  // Add source -> target text
-  const text = tooltip
+  // Create a hidden text element to measure width
+  const tempText = tooltipGroup
     .append('text')
-    .attr('x', x)
-    .attr('y', y)
     .attr('text-anchor', 'middle')
-    .style('fill', 'white')
-    .style('font-size', '12px');
+    .attr('dominant-baseline', 'middle')
+    .style('visibility', 'hidden')
+    .html(
+      `${bankNode.id}    <tspan style="font-size: 14px; font-weight: bold">${ratio}</tspan>    ${partnerNode.id}`
+    );
 
-  const sourceName =
-    sourceNode.category === 'Banks' ? sourceNode.id : targetNode.id;
-  const targetName =
-    sourceNode.category === 'Banks' ? targetNode.id : sourceNode.id;
+  // Get the actual rendered width
+  const textWidth = tempText.node()?.getComputedTextLength() ?? 0;
+  tempText.remove();
 
-  text
-    .append('tspan')
-    .attr('x', x)
-    .attr('dy', '-10')
-    .style('font-weight', 'bold')
-    .text(`${sourceName} → ${targetName}`);
+  // Add background rectangle first
+  tooltipGroup
+    .append('rect')
+    .attr('x', -(textWidth / 2 + 10))
+    .attr('y', -12)
+    .attr('width', textWidth + 20)
+    .attr('height', 24)
+    .attr('rx', 4)
+    .attr('fill', '#1f2937');
 
-  // Add ratio text, which could contain HTML for bonus formatting
-  const ratioText = text
-    .append('tspan')
-    .attr('x', x)
-    .attr('dy', '20')
-    .style('font-size', '14px')
-    .html(`Transfer Ratio: ${ratio}`);
+  // Add text on top of the background
+  tooltipGroup
+    .append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'middle')
+    .style('fill', '#e5e7eb')
+    .style('font-family', 'Geist Mono')
+    .style('font-size', '12px')
+    .html(
+      `${bankNode.id}    <tspan style="font-size: 14px; font-weight: bold">${ratio}</tspan>    ${partnerNode.id}`
+    );
 
-  // If the ratio contains HTML, it won't render correctly with D3's html() method
-  // So we need to create a foreign object for HTML content
-  if (ratio.includes('<tspan')) {
-    ratioText.text('');
-    const foreignObject = tooltip
-      .append('foreignObject')
-      .attr('x', x - 90)
-      .attr('y', y)
-      .attr('width', 180)
-      .attr('height', 30);
-
-    const div = foreignObject
-      .append('xhtml:div')
-      .style('color', 'white')
-      .style('font-size', '14px')
-      .style('text-align', 'center');
-
-    div.html(`Transfer Ratio: ${ratio}`);
-  }
+  return tooltipGroup;
 };
 
 export const removeTooltip = (
   svg: d3.Selection<SVGSVGElement, unknown, null, undefined>
 ) => {
-  svg.select('.tooltip').remove();
+  svg.selectAll('.link-tooltip').remove();
 };
