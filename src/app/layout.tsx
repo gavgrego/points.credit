@@ -5,8 +5,9 @@ import Footer from '@/components/Footer';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Transfer Guide',
-  description: 'Credit card points transfer guide',
+  title: 'points.credit',
+  description:
+    'Find where to transfer your credit card points and see current transfer bonuses',
 };
 
 export const viewport: Viewport = {
