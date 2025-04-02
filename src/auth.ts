@@ -6,6 +6,13 @@ export const auth = betterAuth({
   database: new Pool({
     connectionString: process.env.BETTER_AUTH_STRING,
   }),
+  user: {
+    additionalFields: {
+      cards: {
+        type: 'string[]',
+      },
+    },
+  },
   socialProviders: {
     discord: {
       clientId: process.env.DISCORD_CLIENT_ID as string,
@@ -17,3 +24,5 @@ export const auth = betterAuth({
   },
   plugins: [passkey()],
 });
+
+export type User = (typeof auth.$Infer.Session)['user'];

@@ -17,7 +17,6 @@ const UserSettings = () => {
   const { signOut } = authClient;
   const router = useRouter();
 
-  console.log(data);
   return (
     <div>
       <DropdownMenu>

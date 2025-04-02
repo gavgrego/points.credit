@@ -53,6 +53,21 @@ const Header = async () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              <NavigationMenuItem>
+                <TooltipProvider>
+                  <Tooltip delayDuration={0}>
+                    <TooltipTrigger>
+                      <Link href="#">Blog</Link>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom">
+                      <span className="text-xs">Coming soon!</span>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </NavigationMenuItem>
+              <NavigationMenuItem className="ml-4">
+                <Link href="/referrals">Referrals</Link>
+              </NavigationMenuItem>
               {/* <NavigationMenuItem>
               <Link href="/blog" className="px-4 py-2 hover:text-primary">
                 Blog
@@ -60,19 +75,20 @@ const Header = async () => {
             </NavigationMenuItem> */}
             </NavigationMenuList>
           </NavigationMenu>
+        </div>
+        <div className="flex items-center gap-4">
           <TooltipProvider>
             <Tooltip delayDuration={0}>
-              <TooltipTrigger className="text-2xl">🇺🇸</TooltipTrigger>
-              <TooltipContent side="right" sideOffset={16}>
+              <TooltipTrigger className="text-2xl ml-8">🇺🇸</TooltipTrigger>
+              <TooltipContent side="left" sideOffset={16}>
                 <span className="text-xs">
                   We currently only support US-based credit cards.
                 </span>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
+          <UserSettings />
         </div>
-
-        <UserSettings />
       </header>
     </div>
   );

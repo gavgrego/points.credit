@@ -14,7 +14,14 @@ export function AuthView({ pathname }: { pathname: string }) {
 
   return (
     <main className="flex flex-col grow p-4 items-center justify-center">
-      <AuthCard pathname={pathname} />
+      <AuthCard
+        localization={{
+          signUp: 'Sign up for points.credit',
+          signUpDescription:
+            'Sign up to dynamically see your currently available transfer bonuses based on cards held.',
+        }}
+        pathname={pathname}
+      />
     </main>
   );
 }
