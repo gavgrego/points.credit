@@ -16,6 +16,9 @@ export const transferPartners: CreditCardProgram[] = [
         category: 'Airlines',
         alliance: 'SkyTeam',
         transferRatio: '1:1.6',
+        bonus: '1:1.92',
+        bonusPercent: 20,
+        bonusUntil: '2025-04-30',
       },
       {
         name: 'Air Canada Aeroplan',
@@ -224,6 +227,9 @@ export const transferPartners: CreditCardProgram[] = [
       {
         name: 'IHG One Rewards',
         category: 'Hotels',
+        bonus: '1:1.8',
+        bonusPercent: 80,
+        bonusUntil: '2025-04-30',
         transferRatio: '1:1',
       },
       {
