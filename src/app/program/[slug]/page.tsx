@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${programName} Transfer Partners`,
+    title: `${programName} Transfer Partners for Credit Card Points`,
     description: `Complete list of ${programName} transfer partners including transfer ratios and current transfer bonuses.`,
   };
 }
