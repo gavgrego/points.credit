@@ -32,9 +32,6 @@ importers:
       '@sanity/image-url':
         specifier: ^1.1.0
         version: 1.1.0
-      '@tanstack/react-query':
-        specifier: ^5.71.1
-        version: 5.71.1(react@19.1.0)
       better-auth:
         specifier: ^1.2.5
         version: 1.2.5(typescript@5.8.2)
@@ -74,12 +71,6 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
-      react-google-charts:
-        specifier: ^5.2.1
-        version: 5.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-helmet-async:
-        specifier: ^2.0.5
-        version: 2.0.5(react@19.1.0)
       sonner:
         specifier: ^2.0.3
         version: 2.0.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -4441,9 +4432,6 @@ packages:
     resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
     engines: {node: '>=12'}
 
-  invariant@2.2.4:
-    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
-
   is-alphabetical@1.0.4:
     resolution: {integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==}
 
@@ -5631,17 +5619,6 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
-
-  react-google-charts@5.2.1:
-    resolution: {integrity: sha512-mCbPiObP8yWM5A9ogej7Qp3/HX4EzOwuEzUYvcfHtL98Xt4V/brD14KgfDzSNNtyD48MNXCpq5oVaYKt0ykQUQ==}
-    peerDependencies:
-      react: '>=16.3.0'
-      react-dom: '>=16.3.0'
-
-  react-helmet-async@2.0.5:
-    resolution: {integrity: sha512-rYUYHeus+i27MvFE+Jaa4WsyBKGkL6qVgbJvSBoX8mbsWoABJXdEO0bZyi0F6i+4f0NuIb8AvqPMj3iXFHkMwg==}
-    peerDependencies:
-      react: ^16.6.0 || ^17.0.0 || ^18.0.0
 
   react-i18next@14.0.2:
     resolution: {integrity: sha512-YOB/H1IgXveEWeTsCHez18QjDXImzVZOcF9/JroSbjYoN1LOfCoARFJUQQ8VNow0TnGOtHq9SwTmismm78CTTA==}
@@ -11562,10 +11539,6 @@ snapshots:
 
   internmap@2.0.3: {}
 
-  invariant@2.2.4:
-    dependencies:
-      loose-envify: 1.4.0
-
   is-alphabetical@1.0.4: {}
 
   is-alphanumerical@1.0.4:
@@ -12705,18 +12678,6 @@ snapshots:
       use-sidecar: 1.1.3(@types/react@19.0.12)(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.0.12
-
-  react-google-charts@5.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  react-helmet-async@2.0.5(react@19.1.0):
-    dependencies:
-      invariant: 2.2.4
-      react: 19.1.0
-      react-fast-compare: 3.2.2
-      shallowequal: 1.1.0
 
   react-i18next@14.0.2(i18next@23.16.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
