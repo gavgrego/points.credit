@@ -15,7 +15,7 @@ export default async function BlogPage() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-3xl font-bold mb-6">Credit Card Points Blog</h1>
+      <h1 className="text-3xl font-bold mb-6">Tales of the Transfer</h1>
 
       <div className="grid gap-6">
         {posts.map((post) => (
@@ -49,10 +49,6 @@ export default async function BlogPage() {
           </Card>
         ))}
       </div>
-
-      <p className="text-muted-foreground mt-8">
-        Note: This is a demo blog. Articles are not yet available.
-      </p>
     </div>
   );
 }

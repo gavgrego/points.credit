@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <footer className="text-xs flex justify-center flex-col gap-2 items-center pt-20 pb-8">
-      <p className="text-muted-foreground">
+      <div className="text-muted-foreground">
         Built by{' '}
         <a
           target="_blank"
@@ -21,12 +21,12 @@ const Footer = () => {
         >
           Bay Area
         </a>
-      </p>
-      <p className="text-muted-foreground text-xs text-center">
+      </div>
+      <div className="text-muted-foreground text-xs text-center">
         See incorrect data? Please email{' '}
         <a href="mailto:gavin@thecomponent.studio">gavin@thecomponent.studio</a>
-      </p>
-      <div className="flex items-center gap-2 mt-4">
+      </div>
+      <div className="flex items-center gap-2 mt-2">
         <a
           href="https://ko-fi.com/Z8Z6C8DK"
           target="_blank"

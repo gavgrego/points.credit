@@ -1,10 +1,30 @@
+import { auth } from '@/auth';
 import Chart from '@/components/Chart';
 import CurrentBonuses from '@/components/CurrentBonuses';
 import { Card } from '@/components/ui/card';
+import YourBonuses from '@/components/YourBonuses';
+import { SignedIn, SignedOut } from '@daveyplate/better-auth-ui';
+import { headers } from 'next/headers';
+import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth.api.getSession({
+    headers: await headers(), // you need to pass the headers object.
+  });
   return (
     <div className="flex flex-col gap-10">
+      <SignedIn>
+        <YourBonuses user={session?.user || null} />
+      </SignedIn>
+      <SignedOut>
+        <div className="text-xs">
+          <p>
+            You need to <Link href="/auth/sign-in">sign in</Link> or{' '}
+            <Link href="/auth/sign-up">register</Link> to see your active
+            transfer bonuses!
+          </p>
+        </div>
+      </SignedOut>
       <Card className="bg-card rounded-lg shadow-lg border border-border/40 p-6">
         <h2>
           Use the graph to see where your points can go! Supports American

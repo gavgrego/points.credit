@@ -368,10 +368,6 @@ export const transferPartners: CreditCardProgram[] = [
         name: 'Aer Lingus AerClub',
         category: 'Airlines',
         transferRatio: '1:1',
-        bonusUntil: 'Whole Month of April',
-
-        bonus:
-          '1:1.5 for Blue, 1:1.6 for Silver, 1:1.75 for Gold, 1:2 for Platinum',
       },
       {
         name: 'Air Canada Aeroplan',
@@ -402,11 +398,6 @@ export const transferPartners: CreditCardProgram[] = [
         name: 'British Airways Executive Club',
         category: 'Airlines',
         alliance: 'OneWorld',
-        bonusUntil: 'Whole Month of April',
-
-        bonus:
-          '1:1.5 for Blue, 1:1.6 for Silver, 1:1.75 for Gold, 1:2 for Platinum',
-
         transferRatio: '1:1',
       },
       {
@@ -425,10 +416,6 @@ export const transferPartners: CreditCardProgram[] = [
         name: 'Iberia Plus',
         category: 'Airlines',
         alliance: 'OneWorld',
-        bonus:
-          '1:1.5 for Blue, 1:1.6 for Silver, 1:1.75 for Gold, 1:2 for Platinum',
-        bonusUntil: 'Whole Month of April',
-
         transferRatio: '1:1',
       },
       {

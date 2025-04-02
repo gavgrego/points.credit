@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'points.credit',
@@ -43,9 +44,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background">
-        <Header />
-        <main className="mx-auto px-4 py-8 sm:px-6 lg:px-8">{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="mx-auto px-4 py-8 sm:px-6 lg:px-8">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
