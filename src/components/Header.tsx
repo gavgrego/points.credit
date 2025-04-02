@@ -6,7 +6,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from './ui/navigation-menu';
-import { UserAvatar } from '@daveyplate/better-auth-ui';
 import Link from 'next/link';
 import { Tooltip } from '@radix-ui/react-tooltip';
 import { TooltipContent } from '@radix-ui/react-tooltip';

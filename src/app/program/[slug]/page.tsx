@@ -12,7 +12,6 @@ const programSlugs: Record<string, string> = {
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

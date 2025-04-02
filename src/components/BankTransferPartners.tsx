@@ -13,14 +13,6 @@ import { type SanityDocument } from 'next-sanity';
 
 const options = { next: { revalidate: 30 } };
 
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-};
-
 const BANK_TRANSFER_PARTNERS_QUERY = `*[_type == "bank" && slug.current == $slug][0]{
   name,
   image,
@@ -43,7 +35,7 @@ const BANK_TRANSFER_PARTNERS_QUERY = `*[_type == "bank" && slug.current == $slug
   }
 }`;
 
-const isActiveBonus = (bonus: any) => {
+const isActiveBonus = (bonus: SanityDocument) => {
   if (!bonus) return false;
   const now = new Date();
   const startDate = new Date(bonus.startDate);
@@ -67,10 +59,10 @@ const BankTransferPartners = async ({ slug }: { slug: string }) => {
   }
 
   const airlinePartners = bank.transferPartners.filter(
-    (partner: any) => partner.partnerType === 'airline'
+    (partner: SanityDocument) => partner.partnerType === 'airline'
   );
   const hotelPartners = bank.transferPartners.filter(
-    (partner: any) => partner.partnerType === 'hotel'
+    (partner: SanityDocument) => partner.partnerType === 'hotel'
   );
 
   return (
@@ -107,7 +99,7 @@ const BankTransferPartners = async ({ slug }: { slug: string }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {airlinePartners.map((partner: any) => {
+              {airlinePartners.map((partner: SanityDocument) => {
                 const active = isActiveBonus(partner.activeBonus);
                 return (
                   <TableRow key={partner.partnerName}>
@@ -157,7 +149,7 @@ const BankTransferPartners = async ({ slug }: { slug: string }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {hotelPartners.map((partner: any) => {
+              {hotelPartners.map((partner: SanityDocument) => {
                 const active = isActiveBonus(partner.activeBonus);
                 return (
                   <TableRow key={partner.partnerName}>
