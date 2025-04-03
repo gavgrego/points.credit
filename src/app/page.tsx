@@ -1,9 +1,10 @@
 import { auth } from '@/auth';
 import Chart from '@/components/Chart';
 import CurrentBonuses from '@/components/CurrentBonuses';
+import { Spinner } from '@/components/Spinner';
 import { Card } from '@/components/ui/card';
 import YourBonuses from '@/components/YourBonuses';
-import { SignedIn, SignedOut } from '@daveyplate/better-auth-ui';
+import { AuthLoading, SignedIn, SignedOut } from '@daveyplate/better-auth-ui';
 import { headers } from 'next/headers';
 import Link from 'next/link';
 
@@ -13,6 +14,10 @@ export default async function Home() {
   });
   return (
     <div className="flex flex-col gap-10">
+      <AuthLoading>
+        <Spinner />
+      </AuthLoading>
+
       <SignedIn>
         <YourBonuses user={session?.user || null} />
       </SignedIn>
