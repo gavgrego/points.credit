@@ -33,6 +33,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,
+    autoSignIn: true,
   },
   plugins: [passkey()],
 });
