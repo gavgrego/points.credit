@@ -23,7 +23,7 @@ const CurrentBonuses = async () => {
   return (
     <div className="w-full relative space-y-6">
       <h2 className="text-3xl font-bold text-foreground">
-        All Current or Recent Transfer Bonuses
+        All Current Transfer Bonuses
       </h2>
 
       {bonuses.length === 0 ? (
