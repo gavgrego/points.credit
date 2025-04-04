@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@daveyplate/better-auth-ui':
-        specifier: ^1.2.42
-        version: 1.2.42(wog6ovjh3qtdcuxuflzcryptqi)
+        specifier: ^1.3.0
+        version: 1.3.8(73yba76psy7xp4btzmzqrckyxa)
       '@radix-ui/react-checkbox':
         specifier: ^1.1.4
         version: 1.1.4(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -755,20 +755,25 @@ packages:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@daveyplate/better-auth-ui@1.2.42':
-    resolution: {integrity: sha512-2yzyYGvgOZ+MlaULIaNPzb+sel0oLZwlijYoLFbkCygRD/iqJNGkFGbGZnEx4TZ7bqG1KGLJTdgG7kqWCES6gA==}
+  '@daveyplate/better-auth-ui@1.3.8':
+    resolution: {integrity: sha512-JKIsrC0eef+pA0WnOPwC0/jjXhsrF5vLXUx8eXnMoxzcbMg19YmLkOtFfqaD0pW0WeiJ0ssYhYRVjydA0R5XzA==}
     peerDependencies:
-      '@daveyplate/better-auth-tanstack': ^1.2.30
+      '@daveyplate/better-auth-tanstack': ^1.3.1
+      '@instantdb/react': ^0.18.2
       '@radix-ui/react-avatar': '>=1.1.0'
       '@radix-ui/react-checkbox': '>=1.1.0'
+      '@radix-ui/react-context': '>=1.1.0'
       '@radix-ui/react-dialog': '>=1.1.0'
       '@radix-ui/react-dropdown-menu': '>=2.1.0'
       '@radix-ui/react-label': '>=2.1.0'
+      '@radix-ui/react-primitive': '>=2.0.0'
       '@radix-ui/react-slot': '>=1.1.0'
       '@radix-ui/react-tabs': '>=1.1.0'
+      '@radix-ui/react-use-callback-ref': '>=1.1.0'
+      '@radix-ui/react-use-layout-effect': '>=1.1.0'
       '@react-email/components': '>=0.0.33'
       '@tanstack/react-query': '>=5.66.0'
-      better-auth: '>=1.2.4'
+      better-auth: ^1.2.4
       class-variance-authority: '>=0.7.0'
       clsx: '>=2.1.0'
       lucide-react: '>=0.469.0'
@@ -1418,6 +1423,14 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
+
+  '@instantdb/core@0.18.3':
+    resolution: {integrity: sha512-LYK4mQaJwFFCJrksxK/0uyNqnhpoy9op3N/MEyPIGlI7iMWFc6mCoMAbmfctywtSAthBbWj08HyfpUEPQpc7AA==}
+
+  '@instantdb/react@0.18.3':
+    resolution: {integrity: sha512-KwxAYM9KObuQ/te5zcx3ExDHK9yPStmfXnQZf6ChDlF+wNtDPkIwRYSa2lkrJZNnXtpJw3texGZrhODSrGq4tQ==}
+    peerDependencies:
+      react: '>=16'
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -5079,6 +5092,10 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
+  mutative@1.1.0:
+    resolution: {integrity: sha512-2PJADREjOusk3iJkD3rXV2YjAxTuaLxdfqtqTEt6vcY07LtEBR1seHuBHXWEIuscqRDGvbauYPs+A4Rj/KTczQ==}
+    engines: {node: '>=14.0'}
+
   mute-stream@2.0.0:
     resolution: {integrity: sha512-WWdIxpyjEn+FhQJQQv9aQAYlHoNVdzIzUySNV1gHUPDSdZJ3yZn7pAAbQcV7B56Mvu881q9FZV+0Vx2xC44VWA==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -6502,6 +6519,10 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
 
+  uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+
   uuidv7@0.4.4:
     resolution: {integrity: sha512-jjRGChg03uGp9f6wQYSO8qXkweJwRbA5WRuEQE8xLIiehIzIIi23qZSzsyvZPCPoFqkeLtZuz7Plt1LGukAInA==}
     hasBin: true
@@ -7552,16 +7573,21 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@daveyplate/better-auth-ui@1.2.42(wog6ovjh3qtdcuxuflzcryptqi)':
+  '@daveyplate/better-auth-ui@1.3.8(73yba76psy7xp4btzmzqrckyxa)':
     dependencies:
       '@daveyplate/better-auth-tanstack': 1.2.32(@tanstack/query-core@5.71.1)(@tanstack/react-query@5.71.1(react@19.1.0))(better-auth@1.2.5(typescript@5.8.2))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@instantdb/react': 0.18.3(react@19.1.0)
       '@radix-ui/react-avatar': 1.1.3(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@radix-ui/react-checkbox': 1.1.4(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-context': 1.1.1(@types/react@19.0.12)(react@19.1.0)
       '@radix-ui/react-dialog': 1.1.6(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@radix-ui/react-dropdown-menu': 2.1.6(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@radix-ui/react-label': 2.1.2(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-primitive': 2.0.2(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@radix-ui/react-slot': 1.1.2(@types/react@19.0.12)(react@19.1.0)
       '@radix-ui/react-tabs': 1.1.3(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@radix-ui/react-use-callback-ref': 1.1.0(@types/react@19.0.12)(react@19.1.0)
+      '@radix-ui/react-use-layout-effect': 1.1.0(@types/react@19.0.12)(react@19.1.0)
       '@react-email/components': 0.0.34(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@tanstack/react-query': 5.71.1(react@19.1.0)
       better-auth: 1.2.5(typescript@5.8.2)
@@ -8043,6 +8069,16 @@ snapshots:
   '@inquirer/type@3.0.5(@types/node@20.17.28)':
     optionalDependencies:
       '@types/node': 20.17.28
+
+  '@instantdb/core@0.18.3':
+    dependencies:
+      mutative: 1.1.0
+      uuid: 9.0.1
+
+  '@instantdb/react@0.18.3(react@19.1.0)':
+    dependencies:
+      '@instantdb/core': 0.18.3
+      react: 19.1.0
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -12176,6 +12212,8 @@ snapshots:
 
   ms@2.1.3: {}
 
+  mutative@1.1.0: {}
+
   mute-stream@2.0.0: {}
 
   nano-pubsub@3.0.0: {}
@@ -13854,6 +13892,8 @@ snapshots:
   uuid@11.1.0: {}
 
   uuid@8.3.2: {}
+
+  uuid@9.0.1: {}
 
   uuidv7@0.4.4: {}
 

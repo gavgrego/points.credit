@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 import { Providers } from './providers';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'points.credit',
@@ -49,6 +50,7 @@ export default function RootLayout({
           <main className="mx-auto px-4 py-8 sm:px-6 lg:px-8">{children}</main>
           <Footer />
         </Providers>
+        <Toaster />
       </body>
     </html>
   );

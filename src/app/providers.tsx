@@ -19,7 +19,10 @@ export function Providers({ children }: { children: ReactNode }) {
         // Clear router cache (protected routes)
         router.refresh();
       }}
-      LinkComponent={Link}
+      Link={Link}
+      emailVerification={true}
+      confirmPassword={true}
+      nameRequired={true}
     >
       {children}
     </AuthUIProvider>
