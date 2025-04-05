@@ -15,8 +15,8 @@ import UserSettings from './UserSettings';
 const Header = async () => {
   return (
     <div className="shadow-sm mx-auto px-4 pt-4 sm:px-6 lg:px-8">
-      <header className="flex items-center justify-between text-foreground">
-        <div className="flex items-center flex-col sm:flex-row justify-start gap-2">
+      <header className="flex items-center justify-between text-foreground flex-col md:flex-row">
+        <div className="flex items-center flex-col sm:flex-row justify-center md:justify-start gap-2">
           <div className="flex flex-col gap-1 items-center">
             <Link href="/" className="flex items-center gap-2">
               <ArrowLeftRight className="animate-[wiggle_1s_ease-in-out_infinite]" />
@@ -78,7 +78,9 @@ const Header = async () => {
         <div className="flex items-center gap-4">
           <TooltipProvider>
             <Tooltip delayDuration={0}>
-              <TooltipTrigger className="text-2xl ml-8">🇺🇸</TooltipTrigger>
+              <TooltipTrigger className="text-2xl ml-8 hidden md:block">
+                🇺🇸
+              </TooltipTrigger>
               <TooltipContent side="left" sideOffset={16}>
                 <span className="text-xs">
                   We currently only support US-based credit cards.
